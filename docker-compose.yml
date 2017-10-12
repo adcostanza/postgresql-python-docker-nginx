@@ -4,6 +4,11 @@ services:
   db:
     restart: always
     image: postgres
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: pass
+    volumes:
+      - /var/lib/postgresql/data
   app:
     restart: always
     build:
