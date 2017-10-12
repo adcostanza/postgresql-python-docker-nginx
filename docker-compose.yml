@@ -16,8 +16,6 @@ services:
       dockerfile: Dockerfile
     expose:
       - "8080"
-    volumes:
-      - /usr/src/app/sql
   proxy:
     restart: always
     build:
@@ -25,7 +23,3 @@ services:
       dockerfile: Dockerfile
     ports:
       - "80:80"
-    links:
-      - app
-    volumes_from:
-      - app

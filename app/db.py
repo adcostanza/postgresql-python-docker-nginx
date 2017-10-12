@@ -18,5 +18,6 @@ class DB:
 						tag varchar,\
 						_time timestamp DEFAULT now())""")
 		self.conn.commit()
-		
+		print("Table created")
 db = DB()
+db.createTable()
