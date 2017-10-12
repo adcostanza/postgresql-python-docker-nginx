@@ -19,5 +19,17 @@ class DB:
 						_time timestamp DEFAULT now())""")
 		self.conn.commit()
 		print("Table created")
-db = DB()
-db.createTable()
+	def addPost(self,link,like):
+		
+		cur = self.conn.cursor()
+		cur.execute("""INSERT INTO Posts (link, _like) VALUES (%s, %s)""",(link,like))
+		self.conn.commit()
+		print("Inserted into posts", link)
+	def getAllLinks(self):
+		cur = self.conn.cursor()
+		cur.execute("""SELECT link FROM Posts""")
+		posts = cur.fetchall()
+		self.conn.commit()
+		#print(posts)
+		return(posts)
+#db.createTable()

@@ -9,6 +9,7 @@ services:
       POSTGRES_PASSWORD: pass
     volumes:
       - /var/lib/postgresql/data
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
   app:
     restart: always
     build:
